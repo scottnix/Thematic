@@ -74,8 +74,8 @@ function thematic_abovecommentsform() {
  * @link http://wordpress.org/extend/plugins/subscribe-to-comments/ Subscribe to Comments Plugin Page
  */
 function thematic_show_subscription_checkbox() {
-    if( function_exists( 'show_subscription_checkbox' ) ) { 
-		show_subscription_checkbox(); 
+    if( function_exists( 'show_subscription_checkbox' ) ) {
+		show_subscription_checkbox();
 	}
 }
 add_action('comment_form', 'thematic_show_subscription_checkbox', 98);
@@ -98,8 +98,8 @@ function thematic_belowcommentsform() {
  * @link http://wordpress.org/extend/plugins/subscribe-to-comments/ Subscribe to Comments Plugin Page
  */
 function thematic_show_manual_subscription_form() {
-    if( function_exists( 'show_manual_subscription_form' ) ) { 
-		show_manual_subscription_form(); 
+    if( function_exists( 'show_manual_subscription_form' ) ) {
+		show_manual_subscription_form();
 	}
 }
 add_action('thematic_belowcommentsform', 'thematic_show_manual_subscription_form', 5);
@@ -233,15 +233,15 @@ function thematic_comment_form_args( $post_id = null ) {
 	$aria_req = ( $req ? " aria-required='true'" : '' );
 
 	$fields =  array(
-		'author' => '<div id="form-section-author" class="form-section"><div class="form-label">' . '<label for="author">' . __( 'Name', 'thematic' ) . '</label> ' . ( $req ? '<span class="required">' . _x( '*', 'denotes required field', 'thematic' ) . '</span>' : '' ) . '</div>' . '<div class="form-input">' . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' .  ' maxlength="20" tabindex="3"' . $aria_req . ' /></div></div><!-- #form-section-author .form-section -->',
-		'email'  => '<div id="form-section-email" class="form-section"><div class="form-label"><label for="email">' . __( 'Email', 'thematic' ) . '</label> ' . ( $req ? '<span class="required">' . _x( '*', 'denotes required field', 'thematic' ) . '</span>' : '' ) . '</div><div class="form-input">' . '<input id="email" name="email" type="email" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" maxlength="50" tabindex="4"' . $aria_req . ' /></div></div><!-- #form-section-email .form-section -->',
-		'url'    => '<div id="form-section-url" class="form-section"><div class="form-label"><label for="url">' . __( 'Website', 'thematic' ) . '</label></div>' . '<div class="form-input"><input id="url" name="url" type="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" maxlength="50" tabindex="5" /></div></div><!-- #form-section-url .form-section -->',
+		'author' => '<div id="form-section-author" class="form-section"><div class="form-label">' . '<label for="author">' . __( 'Name', 'thematic' ) . '</label> ' . ( $req ? '<span class="required">' . _x( '*', 'denotes required field', 'thematic' ) . '</span>' : '' ) . '</div>' . '<div class="form-input">' . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' .  ' maxlength="20"' . $aria_req . ' /></div></div><!-- #form-section-author .form-section -->',
+		'email'  => '<div id="form-section-email" class="form-section"><div class="form-label"><label for="email">' . __( 'Email', 'thematic' ) . '</label> ' . ( $req ? '<span class="required">' . _x( '*', 'denotes required field', 'thematic' ) . '</span>' : '' ) . '</div><div class="form-input">' . '<input id="email" name="email" type="email" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" maxlength="50"' . $aria_req . ' /></div></div><!-- #form-section-email .form-section -->',
+		'url'    => '<div id="form-section-url" class="form-section"><div class="form-label"><label for="url">' . __( 'Website', 'thematic' ) . '</label></div>' . '<div class="form-input"><input id="url" name="url" type="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" maxlength="50" /></div></div><!-- #form-section-url .form-section -->',
 	);
 
 
 	$args = array(
 		'fields'               => apply_filters( 'comment_form_default_fields', $fields ),
-		'comment_field'        => '<div id="form-section-comment" class="form-section"><div class="form-label"><label for="comment">' . __(thematic_commentbox_text(), 'thematic') . '</label></div><div class="form-textarea"><textarea id="comment" name="comment" cols="45" rows="8" tabindex="6" aria-required="true"></textarea></div></div><!-- #form-section-comment .form-section -->',
+		'comment_field'        => '<div id="form-section-comment" class="form-section"><div class="form-label"><label for="comment">' . __(thematic_commentbox_text(), 'thematic') . '</label></div><div class="form-textarea"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></div></div><!-- #form-section-comment .form-section -->',
 
 		'comment_notes_before' => '<p class="comment-notes">' . sprintf( _x( 'Your email is %1$snever%2$s published nor shared.' , '%$1s and %$2s are <em> tags for emphasis on never', 'thematic' ), '<em>' , '</em>' ) . ( $req ? ' ' . sprintf( _x('Required fields are marked %1$s*%2$s', '%$1s and %$2s are <span> tags', 'thematic'), '<span class="required">', '</span>' ) : '' ) . '</p>',
 
